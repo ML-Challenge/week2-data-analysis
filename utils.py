@@ -21,6 +21,30 @@ col = ['red', 'green', 'blue', 'blue', 'yellow', 'black', 'green', 'red', 'red',
 
 # L3.Pandas
 import pandas as pd
+import os
+import urllib.request
+
+def retrieve_dataset(dataset):
+  base_path = 'data'
+  if not os.path.exists(base_path):
+      os.mkdir(base_path)
+
+  full_path = os.path.join(base_path, dataset)
+
+  urllib.request.urlretrieve(f'https://raw.githubusercontent.com/ML-Challenge/week2-data-analysis/master/data/{dataset}', full_path)
+
+  return full_path
+
+# Retrieve datasets
+retrieve_dataset('urban_population.csv')
+retrieve_dataset('messy_stock_data.tsv')
+retrieve_dataset('weather_data_austin_2010.csv')
+retrieve_dataset('pennsylvania2012_turnout.csv')
+retrieve_dataset('titanic.csv')
+retrieve_dataset('auto-mpg.csv')
+retrieve_dataset('tips.csv')
+retrieve_dataset('life_expectancy_at_birth.csv')
+
 urban_population = pd.read_csv('data/urban_population.csv', usecols=['Country Name', 'Country Code', 'Year', 'Total Population', 'Urban population (% of total)'], na_values=['..'])
 world_population = urban_population.groupby('Year').sum()[['Total Population']][::10]
 artists = pd.DataFrame([['1980', 'Blondie', 'Call Me', '6'], ['1981', 'Christopher Cross', "Arthur's Theme", '3'], ['1982', 'Joan Jett', 'I Love Rock and Roll', '7']], columns=['a','b','c', 'd'])
@@ -29,7 +53,7 @@ file_messy = 'data/messy_stock_data.tsv'
 weather = pd.read_csv('data/weather_data_austin_2010.csv')
 august_weather = weather[(weather['Date'] >= '20100801') & (weather['Date'] < '20100901')]
 august_weather.reset_index(inplace=True)
-august_weather.drop('index', inplace=True, axis=1)
+august_weather = august_weather.drop('index', inplace=False, axis=1)
 election = pd.read_csv('data/pennsylvania2012_turnout.csv', index_col='county')
 titanic = pd.read_csv('data/titanic.csv')
 #  Read stock data
