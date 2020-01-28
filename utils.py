@@ -23,3 +23,11 @@ col = ['red', 'green', 'blue', 'blue', 'yellow', 'black', 'green', 'red', 'red',
 import pandas as pd
 urban_population = pd.read_csv('data/urban_population.csv', usecols=['Country Name', 'Country Code', 'Year', 'Total Population', 'Urban population (% of total)'], na_values=['..'])
 world_population = urban_population.groupby('Year').sum()[['Total Population']][::10]
+artists = pd.DataFrame([['1980', 'Blondie', 'Call Me', '6'], ['1981', 'Christopher Cross', "Arthur's Theme", '3'], ['1982', 'Joan Jett', 'I Love Rock and Roll', '7']], columns=['a','b','c', 'd'])
+cities = ['Manheim', 'Preston park', 'Biglerville', 'Indiana', 'Curwensville', 'Crown', 'Harveys lake', 'Mineral springs', 'Cassville','Hannastown','Saltsburg','Tunkhannock','Pittsburgh','Lemasters','Great bend']
+file_messy = 'data/messy_stock_data.tsv'
+weather = pd.read_csv('data/weather_data_austin_2010.csv')
+august_weather = weather[(weather['Date'] >= '20100801') & (
+    weather['Date'] < '20100901')]
+august_weather.reset_index(inplace=True)
+august_weather.drop('index', inplace=True, axis=1)
