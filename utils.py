@@ -44,6 +44,7 @@ retrieve_dataset('titanic.csv')
 retrieve_dataset('auto-mpg.csv')
 retrieve_dataset('tips.csv')
 retrieve_dataset('life_expectancy_at_birth.csv')
+retrieve_dataset('nobel.csv')
 
 urban_population = pd.read_csv('data/urban_population.csv', usecols=['Country Name', 'Country Code', 'Year', 'Total Population', 'Urban population (% of total)'], na_values=['..'])
 world_population = urban_population.groupby('Year').sum()[['Total Population']][::10]
