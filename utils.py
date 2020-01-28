@@ -31,3 +31,5 @@ august_weather = weather[(weather['Date'] >= '20100801') & (
     weather['Date'] < '20100901')]
 august_weather.reset_index(inplace=True)
 august_weather.drop('index', inplace=True, axis=1)
+election = pd.read_csv('data/pennsylvania2012_turnout.csv', index_col='county')
+titanic = pd.read_csv('data/titanic.csv')
