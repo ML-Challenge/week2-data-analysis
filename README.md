@@ -9,9 +9,7 @@ In this week's challenge you will learn the basics of NumPy, pandas and matplotl
 Lessons:
 
 1. **NumPy** - NumPy is a fundamental Python package to efficiently practice data science. In this lesson you will learn to work with such powerful tools as the NumPy array, and get started with data exploration.
-
 2. **matplotlib** - With matplotlib, you can create a bunch of different plots in Python
-
 3. **pandas** - We use pandas to import, inspect and manipulate a variety of datasets
 
 For more info see the ML Challenge page: [Week 2 - Data Analysis and Visualization](https://radu-enuca.gitbook.io/ml-challenge/data-analysis-and-visualisation)
