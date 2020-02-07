@@ -1,6 +1,7 @@
 .ipynb_checkpoints
 __pycache__/
 .idea
+.DS_Store
 venv
 processed_celeba_small.zip
 processed_celeba_small
